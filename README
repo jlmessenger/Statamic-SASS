@@ -1,7 +1,7 @@
 STATAMIC SASS/SCSS PLUGIN
 
 Parses SASS/SCSS files from your theme into a ready to serve CSS file.
-Only re-generates CSS when your SASS files are update.
+Only re-generates CSS when your SASS files are updated.
 
 Install by copying the /sass directory into your Statamic /_add-ons directory.
 
@@ -26,7 +26,7 @@ Tag Parameters:
     "always"     update CSS every time - for development
   error=
     default: "ignore"
-    "ignore"     use last generated CSS, is any
+    "ignore"     use last generated CSS, if any
     "echo"       inject into output stream with echo
     "die"        echo error to output and exit
   debug_info=
@@ -38,7 +38,7 @@ Tag Parameters:
 
 
 Uses PhpSASS <http://www.phpsass.com> which is based on PHamlP <http://code.google.com/p/phamlp/>
-Thanks to those guys!
+Thanks to those folks!
 
 License: http://www.opensource.org/licenses/bsd-license.php
 Author: Jeremy Messenger
