@@ -1,0 +1,45 @@
+STATAMIC SASS/SCSS PLUGIN
+
+Parses SASS/SCSS files from your theme into a ready to serve CSS file.
+Only re-generates CSS when your SASS files are update.
+
+Install by copying the /sass directory into your Statamic /_add-ons directory.
+
+Tag Usage:
+<link rel="stylesheet" href="{{ sass src="scss/myfile.scss" }}">
+
+Tag Parameters:
+  src="PATH_OF_SCSS_FILE_IN_THEME"   *required
+  dev=
+    default: "false"
+    "true"       equivalent to:  style="nested" update="always" error="die"
+  style=
+    default: "compact"
+    "compact"    single line per selector
+    "compressed" minimal whitespace
+    "expanded"   human readable multi-line style
+    "nested"     mimics sass indent structure
+  update=
+    default: "dir"
+    "dir"        update CSS file if any SASS/SCSS file is changed in the same folder
+    "file"       update CSS only when the file referenced by src is updated
+    "always"     update CSS every time - for development
+  error=
+    default: "ignore"
+    "ignore"     use last generated CSS, is any
+    "echo"       inject into output stream with echo
+    "die"        echo error to output and exit
+  debug_info=
+    default: "false"
+    "true"       add debug info to the CSS file for the FireSass Firebug extension
+  line_numbers=
+    default: "false"
+    "true"       add SCSS line numbers references to CSS file
+
+
+Uses PhpSASS <http://www.phpsass.com> which is based on PHamlP <http://code.google.com/p/phamlp/>
+Thanks to those guys!
+
+License: http://www.opensource.org/licenses/bsd-license.php
+Author: Jeremy Messenger
+
