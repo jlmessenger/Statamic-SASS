@@ -1,10 +1,13 @@
 <?php
+
+// Modified for 1.5 compatibility by Jack McDade
+
 require_once('phpsass/SassParser.php');
 class Plugin_sass extends Plugin {
 
   var $meta = array(
     'name'       => 'SASS',
-    'version'    => '0.1',
+    'version'    => '0.1.1',
     'author'     => 'Jeremy Messenger',
     'author_url' => 'http://jlmessenger.com'
   );
@@ -18,23 +21,23 @@ class Plugin_sass extends Plugin {
 
   function __construct() {
     parent::__construct();
-    $this->theme_root = Statamic::get_templates_path();
-    $this->site_root  = Statamic::get_site_root();
+    $this->theme_root = Config::getTemplatesPath();
+    $this->site_root  = Config::getSiteRoot();
   }
 
   public function index() {
-    $dev = $this->fetch_param('dev', FALSE) == "true";
+    $dev = $this->fetchParam('dev', FALSE) == "true";
     
     $def_style = $dev ? 'nested' : 'compact';
     $def_update_on = $dev ? 'always' : 'dir';
     $def_on_error = $dev ? 'die' : 'ignore';
     
-    $src = $this->fetch_param('src', NULL);
-    $style = $this->fetch_param('style', $def_style);
-    $update_on = $this->fetch_param('update', $def_update_on);
-    $debug_info = $this->fetch_param('debug_info', FALSE) == "true";
-    $line_numbers = $this->fetch_param('line_numbers', FALSE) == "true";
-    $on_error = $this->fetch_param('error', $def_on_error);
+    $src = $this->fetchParam('src', NULL);
+    $style = $this->fetchParam('style', $def_style);
+    $update_on = $this->fetchParam('update', $def_update_on);
+    $debug_info = $this->fetchParam('debug_info', FALSE) == "true";
+    $line_numbers = $this->fetchParam('line_numbers', FALSE) == "true";
+    $on_error = $this->fetchParam('error', $def_on_error);
     
     if ($src == null) {
       return $this->error_output($on_error, 'SASS src parameter required');
